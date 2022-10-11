@@ -1,0 +1,20 @@
+{
+    "name": "a1comms/php-cs-fixer-rules",
+    "description": "Code formatting rules for php-cs-fixer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samuel Melrose",
+            "email": "sam.melrose@a1comms.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "friendsofphp/php-cs-fixer": "~3"
+    },
+    "autoload": {
+        "psr-4": {
+            "A1comms\\PhpCsFixer\\": "src/"
+        }
+    }
+}
