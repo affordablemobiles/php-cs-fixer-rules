@@ -13,7 +13,7 @@ declare(strict_types=1);
  * with this source code in the file LICENSE.
  */
 
-namespace A1comms\PhpCsFixer\Fixer\Operator;
+namespace AffordableMobiles\PhpCsFixer\Fixer\Operator;
 
 use PhpCsFixer\AbstractFixer;
 use PhpCsFixer\FixerDefinition\CodeSample;
@@ -37,12 +37,9 @@ final class NotEmptyTernaryToNullCoalescingFixer extends AbstractFixer
      */
     public function getName(): string
     {
-        return sprintf('A1comms/%s', parent::getName());
+        return \sprintf('AffordableMobiles/%s', parent::getName());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
@@ -65,17 +62,11 @@ final class NotEmptyTernaryToNullCoalescingFixer extends AbstractFixer
         return 0;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isCandidate(Tokens $tokens): bool
     {
         return $tokens->isTokenKindFound(T_EMPTY);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens): void
     {
         $emptyIndices = array_keys($tokens->findGivenKind(T_EMPTY));

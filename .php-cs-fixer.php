@@ -2,22 +2,26 @@
 
 declare(strict_types=1);
 
+use AffordableMobiles\PhpCsFixer\Fixer\Operator\NotEmptyTernaryToNullCoalescingFixer;
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
+
 require_once __DIR__.'/vendor/autoload.php';
 
-$finder = PhpCsFixer\Finder::create()
+$finder = Finder::create()
     ->ignoreDotFiles(false)
     ->ignoreVCSIgnored(true)
     ->in(__DIR__)
 ;
 
-$config = new PhpCsFixer\Config();
+$config = new Config();
 $config
     ->registerCustomFixers([
-        new \A1comms\PhpCsFixer\Fixer\Operator\NotEmptyTernaryToNullCoalescingFixer(),
+        new NotEmptyTernaryToNullCoalescingFixer(),
     ])
     ->setRiskyAllowed(true)
     ->setRules([
-        '@PHP81Migration'        => true,
+        '@PHP83Migration'        => true,
         '@PHP80Migration:risky'  => true,
         'heredoc_indentation'    => false,
         '@PhpCsFixer'            => true,
@@ -26,7 +30,7 @@ $config
         'binary_operator_spaces' => [
             'default'   => 'align',
         ],
-        'A1comms/not_empty_ternary_to_null_coalescing' => true,
+        'AffordableMobiles/not_empty_ternary_to_null_coalescing' => true,
     ])
     ->setFinder($finder)
 ;
